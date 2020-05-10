@@ -32,6 +32,10 @@ describe 'db_cookbook::default' do
       expect(chef_run).to start_service 'mongod'
     end
 
+    it 'should create a hosts configuration file' do
+      expect(chef_run).to create_template('etc/hosts')
+    end
+
     it "should create mongod.conf" do
       expect(chef_run).to create_template('/etc/mongod.conf')
     end

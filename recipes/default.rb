@@ -21,6 +21,14 @@ package 'mongodb-org' do
   action [:install, :upgrade]
 end
 
+
+template 'etc/hosts' do
+  source 'hosts.erb'
+  mode '666'
+  owner 'root'
+  group 'root'
+end
+
 service "mongod" do
   action [:enable, :start]
 end
@@ -35,4 +43,3 @@ template '/lib/systemd/system/mongod.service' do
   source 'mongod.service.erb'
   notifies :restart, 'service[mongod]'
 end
-
