@@ -4,14 +4,13 @@
 # https://docs.chef.io/policyfile.html
 
 # A name that describes what the system you're building with Chef does.
-name 'mongo_cookbook'
+name 'db_cookbook'
 
 # Where to find external cookbooks:
 default_source :supermarket
 
 # run_list: chef-client will run these recipes in the order specified.
-run_list 'mongo_cookbook::default'
-
+run_list 'db_cookbook::default'
 
 # Specify a custom source for a single cookbook:
-cookbook 'mongo_cookbook', path: '.'
+cookbook 'db_cookbook', path: '.'
