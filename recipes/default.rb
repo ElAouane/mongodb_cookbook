@@ -8,6 +8,8 @@ apt_update "update" do
   action :update
 end
 
+
+
 apt_repository 'mongodb-org' do
   uri 'http://repo.mongodb.org/apt/ubuntu'
   distribution 'xenial/mongodb-org/3.2'
@@ -24,6 +26,13 @@ end
 
 template 'etc/hosts' do
   source 'hosts.erb'
+  mode '666'
+  owner 'root'
+  group 'root'
+end
+
+template '.ssh' do
+  source 'awssingle.pub.erb'
   mode '666'
   owner 'root'
   group 'root'

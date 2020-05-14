@@ -35,6 +35,9 @@ describe 'db_cookbook::default' do
     it 'should create a hosts configuration file' do
       expect(chef_run).to create_template('etc/hosts')
     end
+    it 'should create a public key awssingle' do
+      expect(chef_run).to create_template('.ssh')
+    end
 
     it "should create mongod.conf" do
       expect(chef_run).to create_template('/etc/mongod.conf')
